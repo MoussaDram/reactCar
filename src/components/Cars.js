@@ -1,23 +1,26 @@
+import Wrapper from './Wrapper'
+
+
+
 
 const Car = ({children, color}) => {
 
-  const colorInfo = color ? (<p>Couleur: {color}</p>) : (<p>Couleur: Néant</p>);
 
-  if(children){
-    return (
-      <div style={{ backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto' }}>
-        <p>Marque: {children}</p>
-        {colorInfo}
-      </div>
-    )
+  let colorInfo = "";
+  if (color) {
+    colorInfo = color;
+  }else {
+    colorInfo = "Néant";
   }
-  else{
+  return children && (
 
-    return(
-      <div style={{ backgroundColor: 'pink', width: '400px', padding: '10px', margin: '5px auto' }}>
-        <p>Pas de data</p>
-      </div>
-    )
-  }
+    <Wrapper>
+      <p>Marque: {children}</p>
+      <p>Marque: {colorInfo}</p>
+    </Wrapper>
+
+  )
 }
-export default Car;
+
+
+export default Car
